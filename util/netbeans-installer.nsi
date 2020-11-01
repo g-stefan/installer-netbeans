@@ -13,7 +13,7 @@
 Name "NetBeans"
 
 ; Version
-!define NetBeansVersion "12.0"
+!define NetBeansVersion "$%PRODUCT_VERSION%"
 
 ; The file to write
 OutFile "installer\netbeans-${NetBeansVersion}-installer.exe"

@@ -3,7 +3,11 @@ rem Public domain
 rem http://unlicense.org/
 rem Created by Grigore Stefan <g_stefan@yahoo.com>
 
+echo -^> vendor netbeans
+
+call build.config.cmd
+
 if not exist vendor\ mkdir vendor
 
-set WEB_LINK=https://mirrors.hostingromania.ro/apache.org/netbeans/netbeans/12.0/netbeans-12.0-bin.zip
-if not exist vendor\netbeans-12.0-bin.zip curl --insecure --location %WEB_LINK% --output vendor\netbeans-12.0-bin.zip
+set WEB_LINK=https://mirrors.hostingromania.ro/apache.org/netbeans/netbeans/%PRODUCT_VERSION%/netbeans-%PRODUCT_VERSION%-bin.zip
+if not exist vendor\netbeans-%PRODUCT_VERSION%-bin.zip curl --insecure --location %WEB_LINK% --output vendor\netbeans-%PRODUCT_VERSION%-bin.zip
