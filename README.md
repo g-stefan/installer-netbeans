@@ -4,3 +4,10 @@ NetBeans Installer
 This is a custom installer for [NetBeans](https://netbeans.apache.org/)
 
 Require [OpenJDK](https://github.com/g-stefan/installer-openjdk/releases)
+
+## License
+
+Copyright (c) Grigore Stefan
+
+Licensed under the [MIT](LICENSE) license.
+
