@@ -1,1 +1,1 @@
-netbeans-12.3-bin.zip,https://netbeans.apache.org/download/index.html
+netbeans-12.5-bin.zip,https://netbeans.apache.org/download/index.html
