@@ -1,1 +1,0 @@
-netbeans-12.5-bin.zip,https://netbeans.apache.org/download/index.html

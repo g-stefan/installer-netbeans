@@ -1,0 +1,18 @@
+{
+	"solution": {
+		"name" : "installer-netbeans",
+		"type" : "xyo-cpp",
+		"projects": [
+			{
+				"name" : "installer-netbeans",
+				"SPDX-License-Identifier": "MIT",
+				"version" : "16",
+				"noVersion" : true
+			}
+		],
+		"hasGithub" : true,
+		"sourceLinks" : {
+			"netbeans-16-bin.zip" : "https://netbeans.apache.org/download/index.html"
+		}
+	}
+}
