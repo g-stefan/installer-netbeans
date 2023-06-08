@@ -10,7 +10,6 @@
 				"noVersion" : true
 			}
 		],
-		"hasGithub" : true,
 		"sourceLinks" : {
 			"netbeans-16-bin.zip" : "https://netbeans.apache.org/download/index.html"
 		}
