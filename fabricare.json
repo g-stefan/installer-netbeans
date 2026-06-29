@@ -6,12 +6,12 @@
 			{
 				"name" : "installer-netbeans",
 				"SPDX-License-Identifier": "MIT",
-				"version" : "27",
+				"version" : "30",
 				"noVersion" : true
 			}
 		],
 		"sourceLinks" : {
-			"netbeans-27-bin.zip" : "https://netbeans.apache.org/download/index.html"
+			"netbeans-30-bin.zip" : "https://netbeans.apache.org/download/index.html"
 		}
 	}
 }

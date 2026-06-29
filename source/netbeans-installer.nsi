@@ -17,18 +17,18 @@ Name "NetBeans"
 !define NetBeansVersion "$%PRODUCT_VERSION%"
 
 ; The file to write
-OutFile "release\netbeans-${NetBeansVersion}-installer.exe"
+OutFile "release\xyo-netbeans-${NetBeansVersion}-installer.exe"
 
 Unicode True
 RequestExecutionLevel admin
 BrandingText "Grigore Stefan [ github.com/g-stefan ]"
 
 ; The default installation directory
-InstallDir "$PROGRAMFILES64\NetBeans"
+InstallDir "$PROGRAMFILES64\XYO\NetBeans"
 
 ; Registry key to check for directory (so if you install again, it will 
 ; overwrite the old one automatically)
-InstallDirRegKey HKLM "Software\NetBeans" "InstallPath"
+InstallDirRegKey HKLM "Software\XYO\NetBeans" "InstallPath"
 
 ;--------------------------------
 ;Interface Settings
@@ -112,16 +112,16 @@ Section "NetBeans (required)" MainSection
 
 	; Set output path to the installation directory.
 	SetOutPath $INSTDIR
-	WriteRegStr HKLM "Software\NetBeans" "InstallPath" "$INSTDIR"
+	WriteRegStr HKLM "Software\XYO\NetBeans" "InstallPath" "$INSTDIR"
 
 	; Write the uninstall keys for Windows
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "DisplayName" "NetBeans"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "Publisher" "Grigore Stefan [ github.com/g-stefan ]"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "DisplayVersion" "${NetBeansVersion}"
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "DisplayIcon" '"$INSTDIR\bin\netbeans64.exe"'
-	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "UninstallString" '"$INSTDIR\Uninstall.exe"'
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "NoModify" 1
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "NoRepair" 1
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "DisplayName" "XYO-NetBeans"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "Publisher" "Grigore Stefan [ github.com/g-stefan ]"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "DisplayVersion" "${NetBeansVersion}"
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "DisplayIcon" '"$INSTDIR\bin\netbeans64.exe"'
+	WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "UninstallString" '"$INSTDIR\Uninstall.exe"'
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "NoModify" 1
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "NoRepair" 1
 
 	; Program files
 	File /r "output\*"
@@ -136,7 +136,7 @@ Section "NetBeans (required)" MainSection
 	; Computing EstimatedSize
 	Call GetInstalledSize
 	Pop $0
-	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans" "EstimatedSize" "$0"
+	WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans" "EstimatedSize" "$0"
 
 	; Set to HKLM
 	EnVar::SetHKLM
@@ -162,8 +162,8 @@ SectionEnd
 ; Optional section (can be disabled by the user)
 Section "Start Menu Shortcuts"
 
-  CreateDirectory "$SMPROGRAMS\NetBeans"
-  CreateShortCut "$SMPROGRAMS\NetBeans\NetBeans.lnk" "$INSTDIR\bin\netbeans64.exe" "" "$INSTDIR\bin\netbeans64.exe" 0
+  CreateDirectory "$SMPROGRAMS\XYO"
+  CreateShortCut "$SMPROGRAMS\XYO\NetBeans.lnk" "$INSTDIR\bin\netbeans64.exe" "" "$INSTDIR\bin\netbeans64.exe" 0
   
 SectionEnd
 
@@ -226,10 +226,10 @@ Section "Uninstall"
 	!macroend
  
 	ClearErrors
-	ReadRegStr $INSTDIR HKLM "Software\NetBeans" "InstallPath"
+	ReadRegStr $INSTDIR HKLM "Software\XYO\NetBeans" "InstallPath"
 	IfErrors +2
 	StrCmp $INSTDIR "" 0 +2
-		StrCpy $INSTDIR "$PROGRAMFILES64\NetBeans"
+		StrCpy $INSTDIR "$PROGRAMFILES64\XYO\NetBeans"
  
 	# Check that the uninstall isn't dangerous.
 	!insertmacro BadPathsCheck
@@ -253,14 +253,14 @@ Section "Uninstall"
 	SetOutPath $TEMP
 
 	; Remove registry keys
-	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\NetBeans"
-	DeleteRegKey HKLM "Software\NetBeans"
+	DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\XYO-NetBeans"
+	DeleteRegKey HKLM "Software\XYO\NetBeans"
 
 	; Remove files and uninstaller
 	RMDir /r "$INSTDIR"
 
 	; Remove shortcuts, if any
-	RMDir /r "$SMPROGRAMS\NetBeans"
+	Delete "$SMPROGRAMS\XYO\NetBeans.lnk"
 	Delete "$DESKTOP\NetBeans.lnk"
 	Delete "$QUICKLAUNCH\NetBeans.lnk"
 

@@ -13,10 +13,10 @@ Shell.setenv("PRODUCT_VERSION", Project.version);
 Shell.setenv("PRODUCT_BASE", "netbeans");
 
 exitIf(Shell.system("makensis.exe /NOCD \"source\\netbeans-installer.nsi\""));
-exitIf(Shell.system("grigore-stefan.sign \"NetBeans\" \"release\\netbeans-" + Project.version + "-installer.exe\""));
+exitIf(Shell.system("grigore-stefan.sign \"NetBeans\" \"release\\xyo-netbeans-" + Project.version + "-installer.exe\""));
 
-var fileName = "netbeans-" + Project.version + "-installer.exe";
-var jsonName = "netbeans-" + Project.version + "-installer.json";
+var fileName = "xyo-netbeans-" + Project.version + "-installer.exe";
+var jsonName = "xyo-netbeans-" + Project.version + "-installer.json";
 
 var json = {};
 json[fileName] = SHA512.fileHash("release/" + fileName);
